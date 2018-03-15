@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		85C7D04120497BA800CCF36B /* PageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C7D04020497BA800CCF36B /* PageCell.swift */; };
+		85C7D04320498FF000CCF36B /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C7D04220498FF000CCF36B /* Page.swift */; };
 		85CFB24F20492A1E006CD174 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CFB24E20492A1E006CD174 /* AppDelegate.swift */; };
 		85CFB25120492A1E006CD174 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CFB25020492A1E006CD174 /* ViewController.swift */; };
-		85CFB25420492A1E006CD174 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85CFB25220492A1E006CD174 /* Main.storyboard */; };
 		85CFB25620492A1E006CD174 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85CFB25520492A1E006CD174 /* Assets.xcassets */; };
 		85CFB25920492A1E006CD174 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85CFB25720492A1E006CD174 /* LaunchScreen.storyboard */; };
 		85CFB26420492A1E006CD174 /* Splash_LoginTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CFB26320492A1E006CD174 /* Splash_LoginTests.swift */; };
@@ -34,10 +35,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		85C7D04020497BA800CCF36B /* PageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageCell.swift; sourceTree = "<group>"; };
+		85C7D04220498FF000CCF36B /* Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
 		85CFB24B20492A1E006CD174 /* Splash Login.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Splash Login.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		85CFB24E20492A1E006CD174 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		85CFB25020492A1E006CD174 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		85CFB25320492A1E006CD174 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		85CFB25520492A1E006CD174 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		85CFB25820492A1E006CD174 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		85CFB25A20492A1E006CD174 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -74,6 +76,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		85C7D0442049A8F400CCF36B /* Page */ = {
+			isa = PBXGroup;
+			children = (
+				85C7D04220498FF000CCF36B /* Page.swift */,
+				85C7D04020497BA800CCF36B /* PageCell.swift */,
+			);
+			path = Page;
+			sourceTree = "<group>";
+		};
 		85CFB24220492A1E006CD174 = {
 			isa = PBXGroup;
 			children = (
@@ -98,8 +109,8 @@
 			isa = PBXGroup;
 			children = (
 				85CFB24E20492A1E006CD174 /* AppDelegate.swift */,
+				85C7D0442049A8F400CCF36B /* Page */,
 				85CFB25020492A1E006CD174 /* ViewController.swift */,
-				85CFB25220492A1E006CD174 /* Main.storyboard */,
 				85CFB25520492A1E006CD174 /* Assets.xcassets */,
 				85CFB25720492A1E006CD174 /* LaunchScreen.storyboard */,
 				85CFB25A20492A1E006CD174 /* Info.plist */,
@@ -188,7 +199,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "Sieder Villareal";
 				TargetAttributes = {
 					85CFB24A20492A1E006CD174 = {
@@ -234,7 +245,6 @@
 			files = (
 				85CFB25920492A1E006CD174 /* LaunchScreen.storyboard in Resources */,
 				85CFB25620492A1E006CD174 /* Assets.xcassets in Resources */,
-				85CFB25420492A1E006CD174 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,6 +271,8 @@
 			files = (
 				85CFB25120492A1E006CD174 /* ViewController.swift in Sources */,
 				85CFB24F20492A1E006CD174 /* AppDelegate.swift in Sources */,
+				85C7D04320498FF000CCF36B /* Page.swift in Sources */,
+				85C7D04120497BA800CCF36B /* PageCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,14 +308,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		85CFB25220492A1E006CD174 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				85CFB25320492A1E006CD174 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		85CFB25720492A1E006CD174 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -329,6 +333,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -336,6 +341,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -386,6 +392,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -393,6 +400,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
