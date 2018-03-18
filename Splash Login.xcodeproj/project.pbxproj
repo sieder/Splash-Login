@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8575883E205A3444000E54B4 /* LoginCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8575883D205A3444000E54B4 /* LoginCell.swift */; };
 		85C7D04120497BA800CCF36B /* PageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C7D04020497BA800CCF36B /* PageCell.swift */; };
 		85C7D04320498FF000CCF36B /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C7D04220498FF000CCF36B /* Page.swift */; };
 		85CFB24F20492A1E006CD174 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CFB24E20492A1E006CD174 /* AppDelegate.swift */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8575883D205A3444000E54B4 /* LoginCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCell.swift; sourceTree = "<group>"; };
 		85C7D04020497BA800CCF36B /* PageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageCell.swift; sourceTree = "<group>"; };
 		85C7D04220498FF000CCF36B /* Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
 		85CFB24B20492A1E006CD174 /* Splash Login.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Splash Login.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -114,6 +116,7 @@
 				85CFB25520492A1E006CD174 /* Assets.xcassets */,
 				85CFB25720492A1E006CD174 /* LaunchScreen.storyboard */,
 				85CFB25A20492A1E006CD174 /* Info.plist */,
+				8575883D205A3444000E54B4 /* LoginCell.swift */,
 			);
 			path = "Splash Login";
 			sourceTree = "<group>";
@@ -271,6 +274,7 @@
 			files = (
 				85CFB25120492A1E006CD174 /* ViewController.swift in Sources */,
 				85CFB24F20492A1E006CD174 /* AppDelegate.swift in Sources */,
+				8575883E205A3444000E54B4 /* LoginCell.swift in Sources */,
 				85C7D04320498FF000CCF36B /* Page.swift in Sources */,
 				85C7D04120497BA800CCF36B /* PageCell.swift in Sources */,
 			);
