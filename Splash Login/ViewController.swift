@@ -58,8 +58,31 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Next", for: .normal)
         button.setTitleColor(UIColor(red: 247/255, green: 154/255, blue: 27/255, alpha: 1), for: .normal)
+        button.addTarget(self, action: #selector(nextPage), for: .touchUpInside)
         return button
     }()
+    
+    @objc func nextPage() {
+        if pageControl.currentPage == pages.count { //last page
+            return
+        }
+        
+        if pageControl.currentPage == pages.count - 1 { //second to the last page
+            pageControlBottomAnchor?.constant = 20
+            nextButtonTopAnchor?.constant = -40
+            skipButtonTopAnchor?.constant = -40
+        }
+        
+
+        
+        let indexPath = IndexPath(item: pageControl.currentPage + 1, section: 0)
+        collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+        pageControl.currentPage += 1
+    }
+    
+    @objc func skipPage() {
+        print("skip page")
+    }
     
     var pageControlBottomAnchor: NSLayoutConstraint?
     var nextButtonTopAnchor: NSLayoutConstraint?
