@@ -37,15 +37,23 @@ class LoginCell: UICollectionViewCell {
         return tf
     }()
     
-    let loginButton: UIButton = {
+    lazy var loginButton: UIButton = {
         let button = UIButton(type: .system)
         //[NSColor colorWithCalibratedRed:0.93 green:0.62 blue:0.22 alpha:1.00]
         button.backgroundColor = UIColor(red: 0.93, green: 0.62, blue: 0.22, alpha: 1)
         button.setTitle("Log in", for: .normal)
         button.tintColor = .white
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(handleLogin), for: .touchUpInside)
         return button
     }()
+    
+    weak var delegate: LoginControllerDelegate?
+    
+    @objc func handleLogin() {
+
+        delegate?.finishLoggingIn()
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)

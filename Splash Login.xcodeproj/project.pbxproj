@@ -7,15 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8558D1BA2062CFBA006201DD /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558D1B92062CFBA006201DD /* MainNavigationController.swift */; };
 		8575883E205A3444000E54B4 /* LoginCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8575883D205A3444000E54B4 /* LoginCell.swift */; };
 		85C7D04120497BA800CCF36B /* PageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C7D04020497BA800CCF36B /* PageCell.swift */; };
 		85C7D04320498FF000CCF36B /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C7D04220498FF000CCF36B /* Page.swift */; };
 		85CFB24F20492A1E006CD174 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CFB24E20492A1E006CD174 /* AppDelegate.swift */; };
-		85CFB25120492A1E006CD174 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CFB25020492A1E006CD174 /* ViewController.swift */; };
+		85CFB25120492A1E006CD174 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CFB25020492A1E006CD174 /* LoginController.swift */; };
 		85CFB25620492A1E006CD174 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85CFB25520492A1E006CD174 /* Assets.xcassets */; };
 		85CFB25920492A1E006CD174 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85CFB25720492A1E006CD174 /* LaunchScreen.storyboard */; };
 		85CFB26420492A1E006CD174 /* Splash_LoginTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CFB26320492A1E006CD174 /* Splash_LoginTests.swift */; };
 		85CFB26F20492A1E006CD174 /* Splash_LoginUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CFB26E20492A1E006CD174 /* Splash_LoginUITests.swift */; };
+		85EBF6792067688800FF8EDF /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EBF6782067688800FF8EDF /* HomeController.swift */; };
+		85EBF67B206778FB00FF8EDF /* UserDefaults+helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EBF67A206778FB00FF8EDF /* UserDefaults+helpers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,12 +39,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8558D1B92062CFBA006201DD /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
 		8575883D205A3444000E54B4 /* LoginCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCell.swift; sourceTree = "<group>"; };
 		85C7D04020497BA800CCF36B /* PageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageCell.swift; sourceTree = "<group>"; };
 		85C7D04220498FF000CCF36B /* Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
 		85CFB24B20492A1E006CD174 /* Splash Login.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Splash Login.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		85CFB24E20492A1E006CD174 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		85CFB25020492A1E006CD174 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		85CFB25020492A1E006CD174 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		85CFB25520492A1E006CD174 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		85CFB25820492A1E006CD174 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		85CFB25A20492A1E006CD174 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -51,6 +55,8 @@
 		85CFB26A20492A1E006CD174 /* Splash LoginUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Splash LoginUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		85CFB26E20492A1E006CD174 /* Splash_LoginUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Splash_LoginUITests.swift; sourceTree = "<group>"; };
 		85CFB27020492A1E006CD174 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		85EBF6782067688800FF8EDF /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
+		85EBF67A206778FB00FF8EDF /* UserDefaults+helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+helpers.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,12 +117,15 @@
 			isa = PBXGroup;
 			children = (
 				85CFB24E20492A1E006CD174 /* AppDelegate.swift */,
+				8558D1B92062CFBA006201DD /* MainNavigationController.swift */,
+				85EBF6782067688800FF8EDF /* HomeController.swift */,
+				85EBF67A206778FB00FF8EDF /* UserDefaults+helpers.swift */,
 				85C7D0442049A8F400CCF36B /* Page */,
-				85CFB25020492A1E006CD174 /* ViewController.swift */,
+				85CFB25020492A1E006CD174 /* LoginController.swift */,
+				8575883D205A3444000E54B4 /* LoginCell.swift */,
 				85CFB25520492A1E006CD174 /* Assets.xcassets */,
 				85CFB25720492A1E006CD174 /* LaunchScreen.storyboard */,
 				85CFB25A20492A1E006CD174 /* Info.plist */,
-				8575883D205A3444000E54B4 /* LoginCell.swift */,
 			);
 			path = "Splash Login";
 			sourceTree = "<group>";
@@ -272,7 +281,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				85CFB25120492A1E006CD174 /* ViewController.swift in Sources */,
+				8558D1BA2062CFBA006201DD /* MainNavigationController.swift in Sources */,
+				85CFB25120492A1E006CD174 /* LoginController.swift in Sources */,
+				85EBF67B206778FB00FF8EDF /* UserDefaults+helpers.swift in Sources */,
+				85EBF6792067688800FF8EDF /* HomeController.swift in Sources */,
 				85CFB24F20492A1E006CD174 /* AppDelegate.swift in Sources */,
 				8575883E205A3444000E54B4 /* LoginCell.swift in Sources */,
 				85C7D04320498FF000CCF36B /* Page.swift in Sources */,

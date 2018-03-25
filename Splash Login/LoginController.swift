@@ -8,7 +8,11 @@
 
 import UIKit
 
-class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+protocol LoginControllerDelegate: class {
+    func finishLoggingIn()
+}
+
+class LoginController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, LoginControllerDelegate {
     
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -50,6 +54,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Skip", for: .normal)
         button.setTitleColor(UIColor(red: 247/255, green: 154/255, blue: 27/255, alpha: 1), for: .normal)
+        button.addTarget(self, action: #selector(skipPage), for: .touchUpInside)
         return button
     }()
     
@@ -68,20 +73,22 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         }
         
         if pageControl.currentPage == pages.count - 1 { //second to the last page
-            pageControlBottomAnchor?.constant = 20
-            nextButtonTopAnchor?.constant = -40
-            skipButtonTopAnchor?.constant = -40
+            moveControlConstraintsOffScreen()
+            
+            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+                self.view.layoutIfNeeded()
+            }, completion: nil)
         }
-        
-
-        
+    
         let indexPath = IndexPath(item: pageControl.currentPage + 1, section: 0)
         collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
         pageControl.currentPage += 1
     }
     
     @objc func skipPage() {
-        print("skip page")
+        //we only need two lines to this
+        pageControl.currentPage = pages.count - 1
+        nextPage()
     }
     
     var pageControlBottomAnchor: NSLayoutConstraint?
@@ -105,7 +112,9 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     @objc func keyboardShow() {
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
-            self.view.frame = CGRect(x: 0, y: -50, width: self.view.frame.width, height: self.view.frame.height)
+            
+            let y: CGFloat = UIDevice.current.orientation.isLandscape ? -100 : -50
+            self.view.frame = CGRect(x: 0, y: y, width: self.view.frame.width, height: self.view.frame.height)
         }, completion: nil)
 
     }
@@ -120,15 +129,11 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         
         let pageNumber = Int(targetContentOffset.pointee.x / view.frame.width)
         pageControl.currentPage = pageNumber
-//        pageControl.isEnabled = false
         
         //we are on the last page
         if pageNumber == pages.count {
             print("Animate controls off screen")
-            pageControlBottomAnchor?.constant = 20
-            nextButtonTopAnchor?.constant = -40
-            skipButtonTopAnchor?.constant = -40
-            
+            moveControlConstraintsOffScreen()
         } else {
             pageControlBottomAnchor?.constant = -20
             nextButtonTopAnchor?.constant = 25
@@ -139,6 +144,12 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             self.view.layoutIfNeeded()
         }, completion: nil)
         
+    }
+    
+    fileprivate func moveControlConstraintsOffScreen() {
+        pageControlBottomAnchor?.constant = 20
+        nextButtonTopAnchor?.constant = -40
+        skipButtonTopAnchor?.constant = -40
     }
     
     fileprivate func registerCells() {
@@ -189,8 +200,10 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
+        //we're rendering our last login cell
         if indexPath.item == pages.count {
-            let loginCell = collectionView.dequeueReusableCell(withReuseIdentifier: loginCellId, for: indexPath)
+            let loginCell = collectionView.dequeueReusableCell(withReuseIdentifier: loginCellId, for: indexPath) as! LoginCell
+            loginCell.delegate = self
             return loginCell
         }
         
@@ -199,13 +212,52 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         let page = pages[indexPath.item]
         cell.page = page
         
-        
         return cell
+    }
+    
+    func finishLoggingIn() {
+        //implement home controller
+        let rootViewController = UIApplication.shared.keyWindow?.rootViewController
+        guard let mainNavigationController = rootViewController as? MainNavigationController else { return }
+        mainNavigationController.viewControllers = [HomeController()]
+        
+        UserDefaults.standard.set(true, forKey: "isLoggedIn")
+        UserDefaults.standard.synchronize() //saving the value to the device
+        
+        dismiss(animated: true, completion: nil)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: view.frame.width, height: view.frame.height)
     }
+    
+    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
+        
+        collectionView.collectionViewLayout.invalidateLayout()
+        
+        let indexPath = IndexPath(item: pageControl.currentPage, section: 0)
+        
+        //scroll to indexpath after the rotation is going
+        DispatchQueue.main.async {
+            self.collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+            self.collectionView.reloadData()
+        }
+  
+    }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
